@@ -1,46 +1,99 @@
-# Getting Started with Create React App
+# React Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Lightweight calculator built with React + TypeScript. Perform basic arithmetic with a clean UI and simple component architecture.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![License](https://img.shields.io/badge/License-MIT-green)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Basic operations**: add, subtract, multiply, divide
+- **Clear/reset**: instant state reset with `C`
+- **Responsive UI**: tidy layout on desktop and mobile
+- **Type-safe**: components and props in TypeScript
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Quick Start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+From the project directory:
 
-### `npm test`
+```bash
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Open http://localhost:3000 to view the app. The dev server live-reloads on changes.
 
-### `npm run build`
+## Scripts
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `npm start`: run the development server
+- `npm test`: run tests in watch mode
+- `npm run build`: create a production build in `build/`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├─ components/
+│  ├─ Button/
+│  ├─ ButtonPanel/
+│  ├─ Calculator/
+│  └─ Display/
+├─ App.tsx
+└─ index.tsx
+```
 
-### `npm run eject`
+- Calculator container: [src/components/Calculator/Calculator.tsx](src/components/Calculator/Calculator.tsx)
+- Display area: [src/components/Display/Display.tsx](src/components/Display/Display.tsx)
+- Button grid: [src/components/ButtonPanel/ButtonPanel.tsx](src/components/ButtonPanel/ButtonPanel.tsx)
+- Single button: [src/components/Button/Button.tsx](src/components/Button/Button.tsx)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Component Overview
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **`Calculator`**: holds state and handles button interactions
+- **`Display`**: renders the current input/result, right-aligned
+- **`ButtonPanel`**: renders the keypad in a grid
+- **`Button`**: generic button with `value` and `onClick(value)`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Development Notes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- UI styles live alongside components (CSS files in each folder)
+- Keep inputs as strings until evaluation to avoid floating precision pitfalls
+- Avoid `eval` in production; consider a parser if you expand operations
+
+## Testing
+
+Run the test suite:
+
+```bash
+npm test
+```
+
+Add tests near components (see [src/App.test.tsx](src/App.test.tsx)).
+
+## Roadmap
+
+- Keyboard input support
+- Advanced ops (%, √, +/-)
+- Accessibility polish (focus states, roles)
+- Error handling for invalid sequences
+
+## Contributing
+
+1. Create a feature branch:
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+2. Commit with clear messages:
+   ```bash
+   git commit -m "feat: add your feature"
+   ```
+3. Push and open a PR.
+
+## License
+
+MIT © Contributors
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React: https://reactjs.org/
+- TypeScript: https://www.typescriptlang.org/
+- Create React App: https://create-react-app.dev/
